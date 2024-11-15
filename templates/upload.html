@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Image to S3</title>
+</head>
+<body>
+    <h1>Upload Image to S3</h1>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Upload</button>
+    </form>
+
+    {% if file_url %}
+        <h2>File uploaded successfully!</h2>
+        <p>File URL: <a href="{{ file_url }}" target="_blank">{{ file_url }}</a></p>
+    {% endif %}
+</body>
+</html>
